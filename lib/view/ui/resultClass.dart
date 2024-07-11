@@ -23,7 +23,11 @@ class _ResultScreenState extends State<ResultScreen> {
             child: Column(
               children: [
                 for(int i = 0; i <= Answerkey.length; i++)
-                  
+                  if(){
+
+                  }else{
+                    
+                  }
               ],
             ),
           )
