@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_quiz_app/view/ui/resultClass.dart';
 
 class QuizScreen extends StatefulWidget {
   QuizScreen({super.key});
@@ -10,15 +11,15 @@ class QuizScreen extends StatefulWidget {
 class _QuizScreenState extends State<QuizScreen> {
   List<String> Question = [
     "Flutter Was developed by",
-    "What is the programming language used to develop Flutter apps?",
+    "What is the programming language use \nto develop Flutter apps?",
     "What is the core concept in Flutter that allows for building UIs?",
-    "What is the benefit of using \"Hot Reload\" in Flutter development?",
-    "What are two ways to manage state in a Flutter application?",
-    "What is the official widget for displaying navigation bars at the bottom of the screen in Flutter?",
-    "How do you navigate between different screens in a Flutter app?",
-    "What is the advantage of using a single codebase for both iOS and Android development in Flutter?",
-    "What is the primary way to create animations in Flutter?"
-        "What file extension is used for Flutter source code files?",
+    "What is the benefit of using \"Hot\n Reload\" in Flutter development?",
+    "What are two ways to manage state in\n a Flutter application?",
+    "What is the official widget for displaying\n navigation bars at the bottom of the screen in Flutter?",
+    "How do you navigate between different \nscreens in a Flutter app?",
+    "What is the advantage of using a single \ncodebase for both iOS and Android development in Flutter?",
+    "What is the primary way to create animations\n in Flutter?"
+        "What file extension is used for Flutter \nsource code files?",
   ];
   List<String> A = [
     "Apple",
@@ -71,9 +72,21 @@ class _QuizScreenState extends State<QuizScreen> {
   ];
   List<String> Answer = [""];
 
+  List<int> SubmitedAnswer = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  int one = 0;
+
+  int myvalue = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => ResultScreen(mylist: SubmitedAnswer)));
+          setState(() {});
+          print(SubmitedAnswer);
+        },
+      ),
       appBar: AppBar(
         centerTitle: true,
         title: Text("Quiz Screen"),
@@ -109,39 +122,39 @@ class _QuizScreenState extends State<QuizScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 RadioMenuButton(
-                                    value: A[index].toString(),
-                                    groupValue: B[index].toString(),
-                                    onChanged: (A[index].toString()) {
-                                      setState(() {
-                                        Answer.add(v.toString());
-                                      });
+                                    value: 1,
+                                    groupValue: myvalue,
+                                    onChanged: (val) {
+                                      print(val);
+                                      SubmitedAnswer[index] = val!;
+                                      setState(() {});
                                     },
                                     child: Text(A[index].toString())),
                                 RadioMenuButton(
-                                    value: B[index].toString(),
-                                    groupValue: B[index].toString(),
-                                    onChanged: (B[index].toString()) {
-                                      setState(() {
-                                        
-                                      });
+                                    value: 2,
+                                    groupValue: myvalue,
+                                    onChanged: (val) {
+                                      print(val);
+                                      SubmitedAnswer[index] = val!;
+                                      setState(() {});
                                     },
                                     child: Text(B[index].toString())),
                                 RadioMenuButton(
-                                    value: C[index].toString(),
-                                    groupValue: B[index].toString(),
-                                    onChanged: (C[index].toString()) {
-                                      setState(() {
-                                       Answer.add(C[index].toString());
-                                      });
+                                    value: 3,
+                                    groupValue: myvalue,
+                                    onChanged: (val) {
+                                      print(val);
+                                      SubmitedAnswer[index] = val!;
+                                      setState(() {});
                                     },
                                     child: Text(C[index].toString())),
                                 RadioMenuButton(
-                                    value: D[index].toString(),
-                                    groupValue: B[index].toString(),
-                                    onChanged: (D[index].toString()) {
-                                      setState(() {
-                                        Answer.add(D[index].toString());
-                                      });
+                                    value: 4,
+                                    groupValue: myvalue,
+                                    onChanged: (val) {
+                                      print(val);
+                                      SubmitedAnswer[index] = val!;
+                                      setState(() {});
                                     },
                                     child: Text(D[index].toString())),
                               ],
