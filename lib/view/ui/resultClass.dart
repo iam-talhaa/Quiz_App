@@ -9,7 +9,18 @@ class ResultScreen extends StatefulWidget {
 }
 
 class _ResultScreenState extends State<ResultScreen> {
-  List<int> Answerkey = [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3];
+  List<int> Answerkey = [
+    1,
+    2,
+    3,
+    4,
+    1,
+    2,
+    3,
+    4,
+    1,
+    2,
+  ];
   int marks = 0;
   @override
   Widget build(BuildContext context) {
@@ -56,6 +67,40 @@ class _ResultScreenState extends State<ResultScreen> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     color: Colors.white),
+                child: Column(
+                  children: <Widget>[
+                    // Text(widget.mylist.reversed.toString()),
+                    Text(Answerkey.toString()),
+                    for (int i = 0; i <= 10; i++)
+                      Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Color(0xffca485c),
+                          ),
+                          child: widget.mylist[i] == Answerkey[i]
+                              ? Column(
+                                  children: [
+                                    Text(
+                                      "Correct",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ],
+                                )
+                              : Column(
+                                  children: [
+                                    Text(
+                                      "Wrong",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ],
+                                )),
+                    // if(Answerkey[i]==widget.mylist[i])
+                    // Text(widget.mylist[i] == Answerkey[i]
+                    //     ?  "correct"
+                    //     : "Wrong"),
+                    // Container()
+                  ],
+                ),
               ),
             )
           ],
