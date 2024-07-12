@@ -18,8 +18,8 @@ class _QuizScreenState extends State<QuizScreen> {
     "What is the official widget for displaying\n navigation bars at the bottom of the screen in Flutter?",
     "How do you navigate between different \nscreens in a Flutter app?",
     "What is the advantage of using a single \ncodebase for both iOS and Android development in Flutter?",
-    "What is the primary way to create animations\n in Flutter?"
-        "What file extension is used for Flutter \nsource code files?",
+    "What is the primary way to create animations\n in Flutter?",
+    "What file extension is used for Flutter \nsource code files?",
   ];
   List<String> A = [
     "Apple",
@@ -28,7 +28,7 @@ class _QuizScreenState extends State<QuizScreen> {
     "Faster app launch times",
     "BLoC and Redux",
     "AppBar",
-    "By manually reloading the app with new code",
+    "By manually reloading the app\n with new code",
     "Faster development time",
     "Using pre-built animation libraries",
     ".xml",
@@ -37,24 +37,24 @@ class _QuizScreenState extends State<QuizScreen> {
     "Meta",
     "Kotlin",
     "Fragments (like in Android)",
-    "Ability to debug code on multiple devices",
+    "Ability to debug code on multiple\n devices",
     "XML layouts and State objects",
     "BottomNavigationBar",
-    "Using a dedicated navigation package or native navigation APIs",
+    "Using a dedicated navigation package \nor native navigation APIs",
     "Reduced code maintenance",
-    "By manually manipulating widget properties over time",
+    "By manually manipulating widget \n properties over time",
     ".java",
   ];
   List<String> C = [
     "Microsoft",
     "Dart",
     "Widgets",
-    "Seeing code changes reflected in the app instantly without restarting",
+    "Seeing code changes reflected in \nthe app instantly without restarting",
     "Navigation and Routing",
     "TabBar",
-    "Directly referencing widgets from different screens",
+    "Directly referencing widgets from\n different screens",
     "Both A and B",
-    "Through custom view classes (like in Android)",
+    "Through custom view classes ",
     ".dart",
   ];
   List<String> D = [
@@ -66,11 +66,10 @@ class _QuizScreenState extends State<QuizScreen> {
     "FloatingActionButton",
     "There's no built-in navigation in Flutter",
     "There's no built-in navigation in Flutter",
-    "No advantage, separate codebases are better",
-    "There's no built-in animation support in Flutter",
-    ".kt"
+    "No advantage, separate codebases\n are better",
+    "There's no built-in animation \n support in Flutter",
+    ".kt",
   ];
-  List<String> Answer = [""];
 
   List<int> SubmitedAnswer = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   int one = 0;
@@ -88,85 +87,123 @@ class _QuizScreenState extends State<QuizScreen> {
         },
       ),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
-        title: Text("Quiz Screen"),
+        backgroundColor: Color(0xff1f005c),
+        title: Text(
+          "Quiz Screen",
+          style: TextStyle(color: Colors.white),
+        ),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-                itemCount: Question.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Card(
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 1 / 2,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment(0.8, 1),
+            colors: <Color>[
+              Color(0xff1f005c),
+              Color(0xff5b0060),
+              Color(0xff870160),
+              Color(0xffac255e),
+              Color(0xffca485c),
+              Color(0xffe16b5c),
+              Color(0xfff39060),
+              Color(0xffffb56b),
+            ], // Gradient from https://learnui.design/tools/gradient-generator.html
+            tileMode: TileMode.mirror,
+          ),
+        ),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                  itemCount: Question.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
+                      child: Card(
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.5,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
-                            color: Colors.green[300]),
-                        child: Column(
-                          children: [
-                            Text('Question',
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Divider(
-                              color: Colors.black,
-                            ),
-                            Text(
-                              Question[index].toString(),
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                RadioMenuButton(
-                                    value: 1,
-                                    groupValue: myvalue,
-                                    onChanged: (val) {
-                                      print(val);
-                                      SubmitedAnswer[index] = val!;
-                                      setState(() {});
-                                    },
-                                    child: Text(A[index].toString())),
-                                RadioMenuButton(
-                                    value: 2,
-                                    groupValue: myvalue,
-                                    onChanged: (val) {
-                                      print(val);
-                                      SubmitedAnswer[index] = val!;
-                                      setState(() {});
-                                    },
-                                    child: Text(B[index].toString())),
-                                RadioMenuButton(
-                                    value: 3,
-                                    groupValue: myvalue,
-                                    onChanged: (val) {
-                                      print(val);
-                                      SubmitedAnswer[index] = val!;
-                                      setState(() {});
-                                    },
-                                    child: Text(C[index].toString())),
-                                RadioMenuButton(
-                                    value: 4,
-                                    groupValue: myvalue,
-                                    onChanged: (val) {
-                                      print(val);
-                                      SubmitedAnswer[index] = val!;
-                                      setState(() {});
-                                    },
-                                    child: Text(D[index].toString())),
-                              ],
-                            )
-                          ],
+                            color: Color(0xffca485c).withOpacity(0.3),
+                          ),
+                          child: Column(
+                            children: [
+                              SizedBox(height: 10),
+                              Row(
+                                children: [
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text('Question',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold)),
+                                ],
+                              ),
+                              Divider(
+                                color: Colors.black,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Text(
+                                  Question[index].toString(),
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  RadioMenuButton(
+                                      value: 1,
+                                      groupValue: myvalue,
+                                      onChanged: (val) {
+                                        print(val);
+                                        SubmitedAnswer[index] = val!;
+                                        setState(() {});
+                                      },
+                                      child: Text(A[index].toString())),
+                                  RadioMenuButton(
+                                      value: 2,
+                                      groupValue: myvalue,
+                                      onChanged: (val) {
+                                        print(val);
+                                        SubmitedAnswer[index] = val!;
+                                        setState(() {});
+                                      },
+                                      child: Text(B[index].toString())),
+                                  RadioMenuButton(
+                                      value: 3,
+                                      groupValue: myvalue,
+                                      onChanged: (val) {
+                                        print(val);
+                                        SubmitedAnswer[index] = val!;
+                                        setState(() {});
+                                      },
+                                      child: Text(C[index].toString())),
+                                  RadioMenuButton(
+                                      value: 4,
+                                      groupValue: myvalue,
+                                      onChanged: (val) {
+                                        print(val);
+                                        SubmitedAnswer[index] = val!;
+                                        setState(() {});
+                                      },
+                                      child: Text(D[index].toString())),
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                }),
-          )
-        ],
+                    );
+                  }),
+            )
+          ],
+        ),
       ),
     );
   }
