@@ -25,6 +25,9 @@ class _ResultScreenState extends State<ResultScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        print(marks);
+      }),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         centerTitle: true,
@@ -54,15 +57,10 @@ class _ResultScreenState extends State<ResultScreen> {
         ),
         child: Column(
           children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
-            ),
             Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.6,
+                height: MediaQuery.of(context).size.height * 1 / 2,
                 width: double.infinity,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
@@ -71,29 +69,24 @@ class _ResultScreenState extends State<ResultScreen> {
                   children: <Widget>[
                     // Text(widget.mylist.reversed.toString()),
                     Text(Answerkey.toString()),
-                    for (int i = 0; i <= 10; i++)
-                      Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: Color(0xffca485c),
-                          ),
-                          child: widget.mylist[i] == Answerkey[i]
-                              ? Column(
-                                  children: [
-                                    Text(
-                                      "Correct",
-                                      style: TextStyle(color: Colors.white),
+                    for (int i = 0; i < 10; i++)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: Color(0xffca485c),
+                            ),
+                            child: widget.mylist[i] == Answerkey[i]
+                                ? Container(
+                                    child: Text('${i} Correct'),
+                                  )
+                                : Container(
+                                    child: Column(
+                                      children: [Text('${i} Correct')],
                                     ),
-                                  ],
-                                )
-                              : Column(
-                                  children: [
-                                    Text(
-                                      "Wrong",
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                  ],
-                                )),
+                                  )),
+                      ),
                     // if(Answerkey[i]==widget.mylist[i])
                     // Text(widget.mylist[i] == Answerkey[i]
                     //     ?  "correct"
