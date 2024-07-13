@@ -24,6 +24,13 @@ class _ResultScreenState extends State<ResultScreen> {
   int marks = 0;
   @override
   Widget build(BuildContext context) {
+    for (int i = 0; i < 10; i++) {
+      if (widget.mylist[i] == Answerkey[i]) {
+        marks = marks + 1;
+      } else {
+        marks = marks + 0;
+      }
+    }
     return Scaffold(
       floatingActionButton: FloatingActionButton(onPressed: () {
         print(marks);
@@ -67,31 +74,22 @@ class _ResultScreenState extends State<ResultScreen> {
                     color: Colors.white),
                 child: Column(
                   children: <Widget>[
-                    // Text(widget.mylist.reversed.toString()),
-                    Text(Answerkey.toString()),
-                    for (int i = 0; i < 10; i++)
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              color: Color(0xffca485c),
-                            ),
-                            child: widget.mylist[i] == Answerkey[i]
-                                ? Container(
-                                    child: Text('${i} Correct'),
-                                  )
-                                : Container(
-                                    child: Column(
-                                      children: [Text('${i} Correct')],
-                                    ),
-                                  )),
-                      ),
-                    // if(Answerkey[i]==widget.mylist[i])
-                    // Text(widget.mylist[i] == Answerkey[i]
-                    //     ?  "correct"
-                    //     : "Wrong"),
-                    // Container()
+                    Text(
+                      marks >= 5 ? "Congratulation" : "Sorry",
+                      style:
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    ),
+
+                    Container(
+                      height: 250,
+                      width: 250,
+                      decoration: BoxDecoration(
+                          color: Colors.deepPurple[300],
+                          shape: BoxShape.circle),
+                      child: Text(" ${marks} /10 "),
+                    ),
+                    // Text(widget.mylist.toString()),
+                    // Text(Answerkey.toString()),
                   ],
                 ),
               ),

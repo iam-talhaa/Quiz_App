@@ -71,22 +71,54 @@ class _QuizScreenState extends State<QuizScreen> {
     ".kt",
   ];
 
-  List<int> SubmitedAnswer = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  List<int> SubmitedAnswer = [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+  ];
   int one = 0;
 
   int myvalue = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => ResultScreen(mylist: SubmitedAnswer)));
-          setState(() {});
-          print(SubmitedAnswer);
-        },
-      ),
       appBar: AppBar(
+        actions: [
+          SizedBox(
+            width: 10,
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => ResultScreen(
+                        mylist: SubmitedAnswer,
+                      )));
+            },
+            child: Container(
+              height: 33,
+              width: 60,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Color(0xfff39060)),
+              child: Center(
+                  child: Text(
+                'SUBMIT',
+                style: TextStyle(
+                    color: Color(0xff1f005c), fontWeight: FontWeight.bold),
+              )),
+            ),
+          ),
+          SizedBox(
+            width: 10,
+          ),
+        ],
         automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: Color(0xff1f005c),
@@ -109,7 +141,7 @@ class _QuizScreenState extends State<QuizScreen> {
               Color(0xffe16b5c),
               Color(0xfff39060),
               Color(0xffffb56b),
-            ], // Gradient from https://learnui.design/tools/gradient-generator.html
+            ],
             tileMode: TileMode.mirror,
           ),
         ),
@@ -201,7 +233,7 @@ class _QuizScreenState extends State<QuizScreen> {
                       ),
                     );
                   }),
-            )
+            ),
           ],
         ),
       ),
