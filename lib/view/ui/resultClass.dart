@@ -76,20 +76,23 @@ class _ResultScreenState extends State<ResultScreen> {
                   children: <Widget>[
                     Text(
                       marks >= 5 ? "Congratulation" : "Sorry",
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: marks >= 5 ? Colors.green : Colors.red),
                     ),
-
                     Container(
-                      height: 250,
-                      width: 250,
+                      height: 220,
+                      width: 220,
                       decoration: BoxDecoration(
                           color: Colors.deepPurple[300],
                           shape: BoxShape.circle),
-                      child: Text(" ${marks} /10 "),
+                      child: Center(
+                          child: Text(
+                        " ${marks} /10 ",
+                        style: TextStyle(fontSize: 50),
+                      )),
                     ),
-                    // Text(widget.mylist.toString()),
-                    // Text(Answerkey.toString()),
                   ],
                 ),
               ),
