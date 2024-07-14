@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_quiz_app/view/ui/Quiz_screen.dart';
 
 class ResultScreen extends StatefulWidget {
   List<int> mylist = [];
@@ -31,10 +32,8 @@ class _ResultScreenState extends State<ResultScreen> {
         marks = marks + 0;
       }
     }
+    setState(() {});
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: () {
-        print(marks);
-      }),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         centerTitle: true,
@@ -65,7 +64,7 @@ class _ResultScreenState extends State<ResultScreen> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
               child: Container(
                 height: MediaQuery.of(context).size.height * 1 / 2,
                 width: double.infinity,
@@ -75,7 +74,7 @@ class _ResultScreenState extends State<ResultScreen> {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      marks >= 5 ? "Congratulation" : "Sorry",
+                      marks >= 5 ? "Congratulation" : "  Sorry!  \nTry Again",
                       style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
@@ -94,6 +93,30 @@ class _ResultScreenState extends State<ResultScreen> {
                       )),
                     ),
                   ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 50),
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {});
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => QuizScreen()));
+                },
+                child: Container(
+                  height: 50,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.red),
+                  child: Center(
+                    child: Text(
+                      'Try Again',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.white),
+                    ),
+                  ),
                 ),
               ),
             )

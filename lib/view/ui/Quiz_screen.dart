@@ -72,22 +72,23 @@ class _QuizScreenState extends State<QuizScreen> {
   ];
 
   List<int> SubmitedAnswer = [
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
   ];
   int one = 0;
 
   int myvalue = 0;
   @override
   Widget build(BuildContext context) {
+    setState(() {});
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -106,12 +107,13 @@ class _QuizScreenState extends State<QuizScreen> {
               width: 60,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: Color(0xfff39060)),
+                  color: Colors.cyan[300]),
               child: Center(
                   child: Text(
                 'SUBMIT',
                 style: TextStyle(
-                    color: Color(0xff1f005c), fontWeight: FontWeight.bold),
+                    color: Color.fromARGB(255, 82, 18, 134),
+                    fontWeight: FontWeight.bold),
               )),
             ),
           ),
