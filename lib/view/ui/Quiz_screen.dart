@@ -195,6 +195,8 @@ class _QuizScreenState extends State<QuizScreen> {
                                       value: 1,
                                       groupValue: myvalue,
                                       onChanged: (val) {
+                                        myvalue = 1;
+
                                         print(val);
                                         SubmitedAnswer[index] = val!;
                                         setState(() {});
@@ -204,6 +206,8 @@ class _QuizScreenState extends State<QuizScreen> {
                                       value: 2,
                                       groupValue: myvalue,
                                       onChanged: (val) {
+                                        myvalue = 2;
+
                                         print(val);
                                         SubmitedAnswer[index] = val!;
                                         setState(() {});
@@ -213,6 +217,7 @@ class _QuizScreenState extends State<QuizScreen> {
                                       value: 3,
                                       groupValue: myvalue,
                                       onChanged: (val) {
+                                        myvalue = 3;
                                         print(val);
                                         SubmitedAnswer[index] = val!;
                                         setState(() {});
@@ -222,6 +227,7 @@ class _QuizScreenState extends State<QuizScreen> {
                                       value: 4,
                                       groupValue: myvalue,
                                       onChanged: (val) {
+                                        myvalue = 4;
                                         print(val);
                                         SubmitedAnswer[index] = val!;
                                         setState(() {});

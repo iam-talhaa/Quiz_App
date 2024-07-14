@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/view/ui/Quiz_screen.dart';
 import 'package:flutter_quiz_app/view/ui/Splash_screen.dart';
 import 'package:flutter_quiz_app/view/ui/login_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(QuizApp());
 }
 
